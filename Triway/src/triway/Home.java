@@ -782,38 +782,15 @@ public class Home extends javax.swing.JFrame {
                     System.out.println("Exception");
                 }
             }
-            /*else if(!jTable1.getModel().getValueAt(row, jTable1.getColumn("S").getModelIndex()).toString().equals("Select") && !jTable1.getModel().getValueAt(row, jTable1.getColumn("D").getModelIndex()).toString().equals("Select") && driveName.equals("F")){
-                try{
-                    ProgressMonitorF.main(null);             
-                }
-                catch(Exception e){
-                    System.out.println("Exception");
-                }
-            }
-            else if(!jTable1.getModel().getValueAt(row, jTable1.getColumn("S").getModelIndex()).toString().equals("Select") && !jTable1.getModel().getValueAt(row, jTable1.getColumn("D").getModelIndex()).toString().equals("Select") && driveName.equals("G")){
-                try{
-                    ProgressMonitorG.main(null);             
-                }
-                catch(Exception e){
-                    System.out.println("Exception");
-                }
-            }
-            else if(!jTable1.getModel().getValueAt(row, jTable1.getColumn("S").getModelIndex()).toString().equals("Select") && !jTable1.getModel().getValueAt(row, jTable1.getColumn("D").getModelIndex()).toString().equals("Select") && driveName.equals("H")){
-                try{
-                    ProgressMonitorH.main(null);             
-                }
-                catch(Exception e){
-                    System.out.println("Exception");
-                }
-            }*/
+            
             else{
                 JOptionPane.showMessageDialog(rootPane, "Please choose Source and Destination");
             }
         }        
         
         if(jTable1.getModel().getValueAt(row, col).toString().equals("Verify")){
-            String s = jTable1.getModel().getValueAt(row, 0).toString();
-            String driveName = s.substring(0 , s.indexOf(":"));
+            //String s = jTable1.getModel().getValueAt(row, 0).toString();
+            //String driveName = s.substring(0 , s.indexOf(":"));
             if(!jTable1.getModel().getValueAt(row, jTable1.getColumn("S").getModelIndex()).toString().equals("Select") && !jTable1.getModel().getValueAt(row, jTable1.getColumn("D").getModelIndex()).toString().equals("Select") /*&& driveName.equals("E")*/){
                 try{
                     HashingE.main(null);             
@@ -822,30 +799,7 @@ public class Home extends javax.swing.JFrame {
                     System.out.println("Exception");
                 }
             }
-            /*else if(!jTable1.getModel().getValueAt(row, jTable1.getColumn("S").getModelIndex()).toString().equals("Select") && !jTable1.getModel().getValueAt(row, jTable1.getColumn("D").getModelIndex()).toString().equals("Select") && driveName.equals("F")){
-                try{
-                    HashingF.main(null);             
-                }
-                catch(Exception e){
-                    System.out.println("Exception");
-                }
-            }
-            else if(!jTable1.getModel().getValueAt(row, jTable1.getColumn("S").getModelIndex()).toString().equals("Select") && !jTable1.getModel().getValueAt(row, jTable1.getColumn("D").getModelIndex()).toString().equals("Select") && driveName.equals("G")){
-                try{
-                    HashingG.main(null);             
-                }
-                catch(Exception e){
-                    System.out.println("Exception");
-                }
-            }
-            else if(!jTable1.getModel().getValueAt(row, jTable1.getColumn("S").getModelIndex()).toString().equals("Select") && !jTable1.getModel().getValueAt(row, jTable1.getColumn("D").getModelIndex()).toString().equals("Select") && driveName.equals("H")){
-                try{
-                    HashingH.main(null);             
-                }
-                catch(Exception e){
-                    System.out.println("Exception");
-                }
-            }*/
+
             if(jTable1.getModel().getValueAt(row, jTable1.getColumn("Status").getModelIndex()).toString().equals("Copied & Verified")){
                 JOptionPane.showMessageDialog(rootPane, "Already Copied and Verified Successfully!");
             }
