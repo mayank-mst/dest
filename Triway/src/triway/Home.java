@@ -163,6 +163,7 @@ public class Home extends javax.swing.JFrame {
                 if(!(fsv.getSystemTypeDescription(aDrive)).equalsIgnoreCase("Local Disk") && !(fsv.getSystemTypeDescription(aDrive)).equalsIgnoreCase("CD Drive")){
                     File files[] = new File(aDrive.toString()).listFiles();
                     model.addRow(new Object[]{aDrive,s1,Math.round(aDrive.getTotalSpace()/1000000000.00*100.0)/100.0+" GB",((aDrive.getTotalSpace()-aDrive.getFreeSpace())/1000000>1024?Math.round((aDrive.getTotalSpace()-aDrive.getFreeSpace())/1000000000.00*100.0)/100.0+" GB":Math.round((aDrive.getTotalSpace()-aDrive.getFreeSpace())/1000000.00)+" MB"),Math.round(aDrive.getFreeSpace()/1000000000.00*100.0)/100.0+" GB",fsv.getSystemTypeDescription(aDrive),"External",files.length,"Choose","Select","Choose","Select","Download","Verify",""});
+                    
                 }/*else{
                     File files[] = new File(aDrive.toString()).listFiles();
                     model.addRow(new Object[]{aDrive,s1,Math.round(aDrive.getTotalSpace()/1000000000.00)+" GB",Math.round((aDrive.getTotalSpace()-aDrive.getFreeSpace())/1000000000.00)+" GB",Math.round(aDrive.getFreeSpace()/1000000000.00)+" GB",fsv.getSystemTypeDescription(aDrive),"Local",files.length,"","","","","","",""});
@@ -197,8 +198,6 @@ public class Home extends javax.swing.JFrame {
         jTable1.getColumn("D").setMinWidth(0); // Must be set before maxWidth!!
         jTable1.getColumn("D").setMaxWidth(0);
         jTable1.getColumn("D").setWidth(0);
-        
-        jLabel1.setFont(f);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -237,16 +236,6 @@ public class Home extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel15 = new javax.swing.JPanel();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jPanel16 = new javax.swing.JPanel();
-        jProgressBar2 = new javax.swing.JProgressBar();
-        jPanel17 = new javax.swing.JPanel();
-        jProgressBar3 = new javax.swing.JProgressBar();
-        jPanel18 = new javax.swing.JPanel();
-        jProgressBar4 = new javax.swing.JProgressBar();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         historyTable = new javax.swing.JTable();
@@ -584,102 +573,21 @@ public class Home extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(14).setPreferredWidth(20);
         }
 
-        jPanel14.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel14.setPreferredSize(new java.awt.Dimension(120, 45));
-        jPanel14.setLayout(null);
-
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Progress");
-        jPanel14.add(jLabel1);
-        jLabel1.setBounds(20, 4, 90, 40);
-
-        jPanel15.setBackground(new java.awt.Color(236, 236, 236));
-        jPanel15.setLayout(null);
-        jPanel15.add(jProgressBar1);
-        jProgressBar1.setBounds(10, 10, 100, 20);
-
-        jPanel16.setBackground(new java.awt.Color(222, 222, 222));
-        jPanel16.setLayout(null);
-        jPanel16.add(jProgressBar2);
-        jProgressBar2.setBounds(10, 10, 100, 20);
-
-        jPanel17.setPreferredSize(new java.awt.Dimension(120, 41));
-
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jProgressBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel18.setBackground(new java.awt.Color(222, 222, 222));
-        jPanel18.setPreferredSize(new java.awt.Dimension(120, 41));
-
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jProgressBar4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jProgressBar4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 41, Short.MAX_VALUE)))
-                .addGap(70, 70, 70))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
         );
 
         jPanel3.add(jPanel5);
@@ -772,9 +680,9 @@ public class Home extends javax.swing.JFrame {
         }
         
         if(jTable1.getModel().getValueAt(row, col).toString().equals("Download")){
-            //String s = jTable1.getModel().getValueAt(row, 0).toString();
-            //String driveName = s.substring(0 , s.indexOf(":"));
-            if(!jTable1.getModel().getValueAt(row, jTable1.getColumn("S").getModelIndex()).toString().equals("Select") && !jTable1.getModel().getValueAt(row, jTable1.getColumn("D").getModelIndex()).toString().equals("Select") /*&& driveName.equals("E")*/){
+            String s = jTable1.getModel().getValueAt(row, 0).toString();
+            String driveName = s.substring(0 , s.indexOf(":"));
+            if(!jTable1.getModel().getValueAt(row, jTable1.getColumn("S").getModelIndex()).toString().equals("Select") && !jTable1.getModel().getValueAt(row, jTable1.getColumn("D").getModelIndex()).toString().equals("Select")){
                 try{
                     ProgressMonitorE.main(null);             
                 }
@@ -782,16 +690,18 @@ public class Home extends javax.swing.JFrame {
                     System.out.println("Exception");
                 }
             }
-            
+            /*else if(jTable1.getModel().getValueAt(row, jTable1.getColumn("Status").getModelIndex()).toString().equals("Copied & Verified")){
+                JOptionPane.showMessageDialog(rootPane, "Already Copied and Verified Successfully!");
+            }*/
             else{
                 JOptionPane.showMessageDialog(rootPane, "Please choose Source and Destination");
             }
         }        
         
         if(jTable1.getModel().getValueAt(row, col).toString().equals("Verify")){
-            //String s = jTable1.getModel().getValueAt(row, 0).toString();
-            //String driveName = s.substring(0 , s.indexOf(":"));
-            if(!jTable1.getModel().getValueAt(row, jTable1.getColumn("S").getModelIndex()).toString().equals("Select") && !jTable1.getModel().getValueAt(row, jTable1.getColumn("D").getModelIndex()).toString().equals("Select") /*&& driveName.equals("E")*/){
+            String s = jTable1.getModel().getValueAt(row, 0).toString();
+            String driveName = s.substring(0 , s.indexOf(":"));
+            if(!jTable1.getModel().getValueAt(row, jTable1.getColumn("S").getModelIndex()).toString().equals("Select") && !jTable1.getModel().getValueAt(row, jTable1.getColumn("D").getModelIndex()).toString().equals("Select")){
                 try{
                     HashingE.main(null);             
                 }
@@ -799,10 +709,9 @@ public class Home extends javax.swing.JFrame {
                     System.out.println("Exception");
                 }
             }
-
-            if(jTable1.getModel().getValueAt(row, jTable1.getColumn("Status").getModelIndex()).toString().equals("Copied & Verified")){
+            /*if(jTable1.getModel().getValueAt(row, jTable1.getColumn("Status").getModelIndex()).toString().equals("Copied & Verified")){
                 JOptionPane.showMessageDialog(rootPane, "Already Copied and Verified Successfully!");
-            }
+            }*/
             else{
                 JOptionPane.showMessageDialog(rootPane, "Please Download then Verify");
             }
@@ -840,7 +749,6 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTable historyTable;
-    private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel10;
     public static javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -861,11 +769,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -874,10 +777,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    public static javax.swing.JProgressBar jProgressBar1;
-    public static javax.swing.JProgressBar jProgressBar2;
-    public static javax.swing.JProgressBar jProgressBar3;
-    public static javax.swing.JProgressBar jProgressBar4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;

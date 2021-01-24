@@ -38,7 +38,6 @@ import static triway.Home.jLabel10;
 import static triway.Home.jLabel11;
 import static triway.Home.jLabel9;
 import static triway.Home.jTable1;
-import static triway.Home.jProgressBar1;
  
 public class ProgressMonitorE extends JPanel {
     private JProgressBar progressBar;
@@ -66,7 +65,6 @@ public class ProgressMonitorE extends JPanel {
         progressBar = new JProgressBar(0, 100);
         progressBar.setValue(0);
         progressBar.setStringPainted(true);
-        //jProgressBar1.setStringPainted(true);
         
         JPanel panel = new JPanel(new BorderLayout(8, 8));
         from = new JLabel("From :");
@@ -167,10 +165,10 @@ public class ProgressMonitorE extends JPanel {
                         int progress = ((Integer)evt.getNewValue()).intValue();
                         //progressMonitor.setProgress(progress);
                         progressBar.setValue(progress);
-                        //jProgressBar1.setValue(progress);
                         }
                         System.out.println("Resumed");
                     }
+                    String text = (Boolean)evt.getNewValue() ? "Paused..." : "Resumed...";
                 }
             }
         });
@@ -288,17 +286,17 @@ public class ProgressMonitorE extends JPanel {
 
             if (update.getProgress() < 100 && !update.getisPaused()) {
                 progressBar.setValue((int) update.getProgress());
-                //jProgressBar1.setValue((int) update.getProgress());
                 size.setText("Item Copied: "+progressNote);
                 time.setText("Time Remaining: About "+update.getTime());
+                //progressMonitor.setNote(update.getProgress()+"%"+" "+"["+progressNote+"]"+" "+"\n"+update.getTime());
             } else if(update.getProgress() < 100 && update.getisPaused()){
                 System.out.println("In procees: " +update.getisPaused());
             }
             else {
                 progressBar.setValue((int) update.getProgress());
-                //jProgressBar1.setValue((int) update.getProgress());
                 size.setText("Item Copied: "+progressNote);
                 time.setText("Time Remaining: About "+update.getTime());
+                //progressMonitor.setNote(update.getProgress()+"%"+" "+"["+progressNote+"]"+" "+"\n"+update.getTime());
             }         
 	}
         long startTime = System.nanoTime();
@@ -322,6 +320,7 @@ public class ProgressMonitorE extends JPanel {
                         for (File f : files) {
                             File destFile = new File(destDir, f.getName());
                             long previousLen = 0;
+                            //taskOutput.append("Now Copying "+ f.getName() + "\n");
                             try {
                                 InputStream in = new FileInputStream(f);
                                 OutputStream out = new FileOutputStream(destFile);                    
@@ -349,6 +348,7 @@ public class ProgressMonitorE extends JPanel {
                             } catch (IOException e) {
                                     e.printStackTrace();
                             }
+                            //taskOutput.append("Copied "+ f.getName() + "\n");
                         }
                     }
                 } else {
@@ -363,18 +363,23 @@ public class ProgressMonitorE extends JPanel {
                 // call get() to tell us whether the operation completed or 
                 // was canceled; we don't do anything with this result
                 CopyData result = (CopyData) get();
+                //taskOutput.append("Copy operation completed.\n"); 
+                //jTable1.setValueAt("Copied Not Verified", jTable1.getSelectedRow(), jTable1.getColumn("Status").getModelIndex());
 		} catch (InterruptedException e) {
 			System.out.println("Interrupted");
 		} catch (CancellationException e) {
 		    // get() throws CancellationException if background task was canceled
+			//taskOutput.append("Copy operation canceled.\n");
+                        //jTable1.setValueAt("Canceled", jTable1.getSelectedRow(), jTable1.getColumn("Status").getModelIndex());
 		}catch (ExecutionException e) {
+			//taskOutput.append("Exception: " + "Please select Directory not Drive");
                         frame.setVisible(false);
                         progressBar.setValue(0);
                         JOptionPane.showMessageDialog(null, "Please select Directory not Drive");
 		}    
             Toolkit.getDefaultToolkit().beep();
+            //progressMonitor.setProgress(0);
             progressBar.setValue(100);
-            //jProgressBar1.setValue(100);
             long endTime = System.nanoTime();
             long a=endTime-startTime;
             timeToCopy = timeToString(a);
